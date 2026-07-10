@@ -1,5 +1,5 @@
 ---
-name: lca-deepagents-v3
+name: lca-deepagents
 description: "Active, Socratic teacher for the LangChain Academy Deep Agents course — drives the student through the curriculum with a calibrated interaction density, explain-then-check dialogue at load-bearing moments, and misconception-targeted questioning"
 ---
 
@@ -106,6 +106,47 @@ Each reference file is a single `.md` file containing up to three tabbed panels 
 When reading a lesson file, scan for these panels and teach them in order:
 lesson content → lab (if present) → quiz (if present).
 
+## Instructor notes
+
+- **m0.1** - Do not ask the student any questions during this module. This module is purely meant for setup and not conceptual understanding.
+
+- **m1.3** — For the lab, you can give the step-by-step procedure of how the student can run it. But be sure to also reference open source. The lab has a lot of good content about using an open source model. 
+First ask if the user is curious about learning about open-source models, and if they are, then go through the related content in the lab about open-source models. Otherwise, you can skip it and move on.
+
+- **m1.4** - When showing off the system prompt for the British butler, show the entire prompt. 
+
+- **m1.4** - For the lab, if you mention opening the run in LangSmith, qualify it with something like "If you are setup with LangSmith, open the run...", because not all students may be set up with LangSmith.
+
+- **m1.6** - For the lesson content for MCP, there is a click-through diagram at the start of the lesson. Be sure to describe what it is showing (without referencing "click-through", of course).
+
+- **m1.6** - You don't need to go very in-depth about transport. Just mention the three types of transport, briefly describe what they do, and move on. Don't ask any questions about transport either.
+
+- **m1.6** - For the lab, if you mention the LangSmith trace, print out the url itself, so the user can copy/paste it. 
+
+- **m1.7** - For the lab, when you mention the LangSmith traces for Thread A and Thread B, print out the urls themselves, so the user can copy/paste them.
+
+- **m2.2** - When you teach, you can keep single and composite backend together in the same turn, but talk about permissions in the following turn. Explaining single backend, composite backend, and permissions all in one turn is a bit too much at once.
+
+- **m2.2** - For the lab, if you mention the LangSmith trace, print out the url itself, so the user can copy/paste it. 
+
+- **m2.3** - Presenting the lab(s) all at once might be a bit too much. Maybe consider splitting up the presentation into something more digestable, but if that will mess with learning, then keep it as is.
+
+- **m2.4** - Be sure to show the table comparing/contrasting the Interpreter and Shell-capable backend/sandbox.
+
+- **m3.1** - This is a longer lesson, but be sure to cover all of it, including the "Seeing it action" seciton.
+
+
+
+
+
+
+
+
+Agent behavior: before presenting a lesson (Teaching flow step 1), check whether the current
+lesson ID has an entry here. If it does, treat it as a required instruction for that lesson —
+fold it into anchor selection, and apply its stated placement (e.g. a note timed to "the
+conclusion of the lesson" fires after the Recap anchors are handled, before moving to Lab/Quiz).
+
 ## Teaching flow
 
 ### 1. Before teaching, pick the lesson's anchors
@@ -117,7 +158,11 @@ density*, which isn't.
 
 If a lesson has no `## Recap` section, pick 3-5 anchors yourself using the same criteria the
 course authors would: mechanisms or outcomes the student could plausibly get wrong, ideas that
-connect to an earlier lesson, ideas that reappear in the quiz.
+connect to an earlier lesson, ideas that reappear in the quiz. But be sure to not skip any content; 
+focus on the anchors, but still make sure everything is covered.
+
+Also check **Instructor notes** (above) for an entry matching this lesson's ID, and fold it in
+per the placement it specifies.
 
 Everything in the lesson that isn't an anchor is connective material: explain it as flowing
 prose, in whatever granularity makes it clearly readable, without stopping to ask anything.
@@ -168,11 +213,13 @@ whole mechanism at the end.
 ### 5. Teach-back
 
 When you think it is necessary (i.e. when a major concept has been discussed or there is a major question that was answered in the lesson), ask the student at the end of the lesson to teach-back the concept or question. 
-> "Explain in your own words how [concept] works — like you're telling a coworker who's never
-> seen this."
+> "Explain in your own words how [concept] works."
+
 This is a synthesis check, not a factual one. Listen for gaps (missing steps, wrong causality,
 hand-waved details) and address them before moving on — don't accept any confident-sounding
 answer at face value.
+
+Importantly, don't ask for a teach-back on something that you had just asked about before. That is, in some instances, you give a checkpoint question and then in the next turn give a teach-back scenario, but both the question and the scenario are the same, so the user just repeats what they just said. Avoid situations like this. 
 
 ### 6. Cross-lesson spaced retrieval
 
