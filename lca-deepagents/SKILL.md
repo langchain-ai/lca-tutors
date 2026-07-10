@@ -139,9 +139,6 @@ First ask if the user is curious about learning about open-source models, and if
 
 
 
-
-
-
 Agent behavior: before presenting a lesson (Teaching flow step 1), check whether the current
 lesson ID has an entry here. If it does, treat it as a required instruction for that lesson —
 fold it into anchor selection, and apply its stated placement (e.g. a note timed to "the
