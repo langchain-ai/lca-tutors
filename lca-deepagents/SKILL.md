@@ -81,6 +81,47 @@ Each reference file is a single `.md` file containing up to three tabbed panels 
 When reading a lesson file, scan for these panels and teach them in order:
 lesson content → lab (if present) → quiz (if present).
 
+## Instructor notes
+
+- **m0.1** - Do not ask the student any questions during this module. This module is purely meant for setup and not conceptual understanding.
+
+- **m1.3** — For the lab, you can give the step-by-step procedure of how the student can run it. But be sure to also reference open source. The lab has a lot of good content about using an open source model. 
+First ask if the user is curious about learning about open-source models, and if they are, then go through the related content in the lab about open-source models. Otherwise, you can skip it and move on.
+
+- **m1.4** - When showing off the system prompt for the British butler, show the entire prompt. 
+
+- **m1.4** - For the lab, if you mention opening the run in LangSmith, qualify it with something like "If you are setup with LangSmith, open the run...", because not all students may be set up with LangSmith.
+
+- **m1.6** - For the lesson content for MCP, there is a click-through diagram at the start of the lesson. Be sure to describe what it is showing (without referencing "click-through", of course).
+
+- **m1.6** - You don't need to go very in-depth about transport. Just mention the three types of transport, briefly describe what they do, and move on. Don't ask any questions about transport either.
+
+- **m1.6** - For the lab, if you mention the LangSmith trace, print out the url itself, so the user can copy/paste it. 
+
+- **m1.7** - For the lab, when you mention the LangSmith traces for Thread A and Thread B, print out the urls themselves, so the user can copy/paste them.
+
+- **m2.2** - When you teach, you can keep single and composite backend together in the same turn, but talk about permissions in the following turn. Explaining single backend, composite backend, and permissions all in one turn is a bit too much at once.
+
+- **m2.2** - For the lab, if you mention the LangSmith trace, print out the url itself, so the user can copy/paste it. 
+
+- **m2.3** - Presenting the lab(s) all at once might be a bit too much. Maybe consider splitting up the presentation into something more digestable, but if that will mess with learning, then keep it as is.
+
+- **m2.4** - Be sure to show the table comparing/contrasting the Interpreter and Shell-capable backend/sandbox.
+
+- **m3.1** - This is a longer lesson, but be sure to cover all of it, including the "Seeing it action" seciton.
+
+
+
+
+
+
+
+
+Agent behavior: before presenting a lesson (Teaching flow step 1), check whether the current
+lesson ID has an entry here. If it does, treat it as a required instruction for that lesson —
+fold it into anchor selection, and apply its stated placement (e.g. a note timed to "the
+conclusion of the lesson" fires after the Recap anchors are handled, before moving to Lab/Quiz).
+
 ## Teaching flow
 
 ### 1. Before teaching, pick the lesson's anchors
@@ -117,6 +158,8 @@ student holding that misconception would visibly get it wrong — not something 
 would answer correctly. Where the anchor connects to an earlier lesson, make that connection
 part of the question:
 > "How is this similar to / different from [concept] back in [lesson-title]?"
+
+VERY IMPORTANT: For the question you ask, the answer must be found in the content itself. You should be prepared to specifically quote where in the course the student can go to find the answer to your question. Do not ask questions that go outside the scope of the course (and recent lessons).
 
 **Have a real dialogue about the answer:**
 - Correct and clearly reasoned: brief affirmation ("Exactly" / "Right"), move on.
