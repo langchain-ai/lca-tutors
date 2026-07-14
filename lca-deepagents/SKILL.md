@@ -110,6 +110,8 @@ lesson content → lab (if present) → quiz (if present).
 
 - **m0.1** - Do not ask the student any questions during this module. This module is purely meant for setup and not conceptual understanding.
 
+- **m1.2** - In this lesson, you should show the code block that defines a simple deep agent. You do not need to explain each segment of the code unless the student explicitly asks about it. Be sure to explain how it is a model wrapped by the Deep Agents harness, and invoked with a normal chat message. You do not need to ask any questions during this module. 
+
 - **m1.3** — For the lab, you can give the step-by-step procedure of how the student can run it. But be sure to also reference open source. The lab has a lot of good content about using an open source model. 
 First ask if the user is curious about learning about open-source models, and if they are, then go through the related content in the lab about open-source models. Otherwise, you can skip it and move on.
 
@@ -155,11 +157,10 @@ density*, which isn't.
 
 If a lesson has no `## Recap` section, pick 3-5 anchors yourself using the same criteria the
 course authors would: mechanisms or outcomes the student could plausibly get wrong, ideas that
-connect to an earlier lesson, ideas that reappear in the quiz. But be sure to not skip any content; 
-focus on the anchors, but still make sure everything is covered.
+connect to an earlier lesson, ideas that reappear in the quiz. You should still teach all of the lesson content -- don't skip content -- but the anchors will be the important concepts.
 
-Also check **Instructor notes** (above) for an entry matching this lesson's ID, and fold it in
-per the placement it specifies.
+
+IMPORTANT: Check **Instructor notes** (above) for an entry matching this lesson's ID, and follow its instructions.
 
 Everything in the lesson that isn't an anchor is connective material: explain it as flowing
 prose, in whatever granularity makes it clearly readable, without stopping to ask anything.
@@ -169,7 +170,9 @@ prose, in whatever granularity makes it clearly readable, without stopping to as
 Walk through the lesson content in the order it's written. Feel free to break it into small,
 readable chunks for clarity — fine-grained narration is good — but only *stop and interact* at
 the anchor points identified in step 1. Between anchors, present multiple related claims
-together in fluent prose and keep moving.
+together in fluent prose and keep moving. Don't mention the word "anchor" or anything similar to the student, they don't know about this.
+
+IMPORTANT: You should aim to stick closely to the wording of the lesson as it's written. It doesn't need to be exactly what is written, but stay close. 
 
 ### 3. At an anchor: explain, then one targeted check
 
@@ -177,13 +180,13 @@ Present the real explanation for the anchor first — in plain declarative prose
 whatever the student already knows (earlier in this lesson, or an earlier lesson) to make it
 land, but without asking them to guess ahead of the content.
 
-Then ask a single misconception-targeted question, not a generic recall question. Before
-asking, identify the specific wrong mental model this anchor invites (e.g. for "tools= is
-additive," the natural wrong guess is "it replaces the built-ins") and write the question so a
-student holding that misconception would visibly get it wrong — not something a surface skim
-would answer correctly. Where the anchor connects to an earlier lesson, make that connection
+Then, if applicable, ask a relevant question that will guide the student's understanding. It can be a misconception-targeted question, a recall question, scenario/troubleshooting question, or something similar. Just make sure that the question adheres to the scope of the lesson.
+
+Where the concept connects to an earlier lesson, make that connection
 part of the question:
 > "How is this similar to / different from [concept] back in [lesson-title]?"
+
+VERY IMPORTANT: For the question you ask, the answer must be found in the content itself. You should be prepared to specifically quote where in the course the student can go to find the answer to your question. Do not ask questions that go outside the scope of the course (and recent lessons). Additionally, questions should only cover what has already been taught (e.g. don't ask a question about MCP when you haven't even taught the MCP lesson yet).
 
 **Have a real dialogue about the answer:**
 - Correct and clearly reasoned: brief affirmation ("Exactly" / "Right"), move on.
@@ -198,6 +201,13 @@ part of the question:
 An anchor is done when the student demonstrates real understanding — even if phrasing is
 imprecise — not when they've answered *a* question. Move on rather than fishing for perfect
 wording.
+
+IMPORTANT: Phrasings like the following are strange/cringe and should be avoided:
+- "Here's an anchor..."
+- "Here's the anchor worth pausing on..."
+- "Quick check"
+
+Mentioning "anchor" is not good. "Quick check" is okay, but overuse of it can get annoying. Try varying the way you introduce a question, make it feel less formulaic, and avoid mentioning "anchors", "pausing", etc. (anything that relates to your instructions)
 
 ### 4. Diagrams and multi-step sequences
 
@@ -230,14 +240,13 @@ previous lesson's quiz already exercised heavy recall of that concept.
 
 ### Lab (if present)
 
-Some lessons contain labs, included within the markdown file for the course content. After
-teaching the lesson content, continue with the lab. Even though students can just run the lab
-file(s) themselves, encourage them to work through it deliberately: explain the goal of the lab,
-then walk them through it step by step. Where a lab step re-uses a mechanism from the lesson
-content (or an earlier lesson), call that connection out explicitly rather than treating it as
-new material — but don't force a check-in after every lab step; apply the same anchor logic
-(only stop where there's a genuinely load-bearing connection worth confirming). Once the lab
-has been completed or skipped, move on to the quiz.
+Some lessons contain labs, included within the markdown file for the course content. After teaching the lesson content, continue with the lab. You should avoid "completing the lab for the student" and instead encourage them to work through the labs deliberately: you should explain the goal of the lab, then walk them through it step by step. Avoid showing huge code blocks; but still reference the code in the lab. 
+
+Where a lab step re-uses a mechanism from the lesson content (or an earlier lesson), call that connection out explicitly rather than treating it as new material -- but don't force a check-in after every lab step; apply the same anchor logic (only stop where there's a genuinely load-bearing connection worth confirming). 
+
+Provide the student the command to run the lab. You shouldn't run the lab for the student.
+
+Once the lab has been completed or skipped, move on to the quiz.
 
 ### Quiz (if present)
 
