@@ -1,9 +1,7 @@
 # LCA Deep Agents Tutor Skill
 
-A Claude Code skill that turns Claude into an active, Socratic instructor for the
-LangChain Academy **Deep Agents** course. Instead of waiting for questions, it drives you
-through the curriculum — presenting material, checking understanding at load-bearing
-moments, and adapting to how much interaction you want.
+An agent skill that turns your AI tool into an active instructor for the LangChain Academy **Deep Agents** course. Instead of waiting for questions, it drives you through the curriculum - presenting material, checking understanding at critical concepts, and adapting to how much interaction you want.
+
 
 ## Obtaining the skill
 
