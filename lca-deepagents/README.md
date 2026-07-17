@@ -21,15 +21,24 @@ Invoke the tutor with:
 /lca-deepagents
 ```
 
-Optionally pass a module and lesson number to jump straight to a specific point in the course, e.g.:
+Optionally name what you want up front to skip the menu, e.g.:
 
 ```
-/lca-deepagents m2.3
+/lca-deepagents teach me m2.3
+/lca-deepagents quiz me on m1.3
 ```
+
+If you just pass a module/lesson number with no instruction (e.g. `/lca-deepagents
+m2.3`), the tutor will ask what you'd like to do with that lesson rather than assuming.
 
 ### What it does
 
-- **Drives the session** — presents lesson content and advances you through the full curriculum (setup through building a sales assistant), rather than just answering ad hoc questions.
+- **Asks what you want first** — on startup, presents a menu (teach the whole course,
+  teach a specific lesson, walk through a lab, quiz you on a lesson, or answer a
+  question) instead of assuming you want to be taught. Choosing to be taught (whole
+  course or a specific lesson) then drives the session end-to-end; a standalone lab or
+  quiz request runs just that and asks what's next afterward.
+- **Drives the session (once teaching starts)** — presents lesson content and advances you through the full curriculum (setup through building a sales assistant), rather than just answering ad hoc questions.
 - **Calibrates interaction density** — asks once, up front, whether you want frequent
   check-ins, checks at key moments (default), or mostly uninterrupted teaching, and
   lets you change that at any time ("ask me more," "just teach me," etc.).
@@ -40,5 +49,5 @@ Optionally pass a module and lesson number to jump straight to a specific point 
   in your own words, and revisits earlier lessons to reinforce cross-lesson retention.
 - **Runs labs and quizzes** — walks through hands-on labs and authored quiz content in
   full, with dialogue depth scaled to your chosen interaction level.
-- **Resumable** — can start at any module/lesson ID you specify, so you can pick up where
-  you left off.
+- **Resumable** — tell it a module/lesson ID (with what you want to do) and it starts
+  there directly, so you can pick up where you left off.
