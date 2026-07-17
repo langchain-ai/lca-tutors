@@ -7,24 +7,23 @@ moments, and adapting to how much interaction you want.
 
 ## Obtaining the skill
 
-Install it with the [skills CLI](https://github.com/langchain-ai/skills):
+Install it with Node:
 
 ```bash
 npx skills add langchain-ai/lca-tutors/lca-deepagents
 ```
 
-This pulls the skill (and its `references/` lesson content) into your project's
-`.claude/skills/` directory so Claude Code can discover it.
+This pulls the skill into your `.agents/skills/` directory. If you are using a tool that reads skills from a different directory (e.g. Claude Code), be sure to select it during setup after running the above command.
 
 ## Using the skill
 
-Invoke it in Claude Code with:
+Invoke the tutor with:
 
 ```
 /lca-deepagents
 ```
 
-Optionally pass a lesson ID to jump straight to a specific point in the course, e.g.:
+Optionally pass a module and lesson number to jump straight to a specific point in the course, e.g.:
 
 ```
 /lca-deepagents m2.3
@@ -32,9 +31,7 @@ Optionally pass a lesson ID to jump straight to a specific point in the course, 
 
 ### What it does
 
-- **Drives the session** — presents lesson content from `references/` and advances you
-  through the full curriculum (setup through building a sales assistant), rather than
-  just answering ad hoc questions.
+- **Drives the session** — presents lesson content and advances you through the full curriculum (setup through building a sales assistant), rather than just answering ad hoc questions.
 - **Calibrates interaction density** — asks once, up front, whether you want frequent
   check-ins, checks at key moments (default), or mostly uninterrupted teaching, and
   lets you change that at any time ("ask me more," "just teach me," etc.).
@@ -45,7 +42,5 @@ Optionally pass a lesson ID to jump straight to a specific point in the course, 
   in your own words, and revisits earlier lessons to reinforce cross-lesson retention.
 - **Runs labs and quizzes** — walks through hands-on labs and authored quiz content in
   full, with dialogue depth scaled to your chosen interaction level.
-- **Handles setup and secrets** — guides first-time environment/API key setup
-  (`m0.1-setup-python`) before teaching begins.
 - **Resumable** — can start at any module/lesson ID you specify, so you can pick up where
   you left off.
