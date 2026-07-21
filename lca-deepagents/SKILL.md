@@ -91,6 +91,9 @@ The student chooses what happens, not the tutor. Don't default to teaching witho
 
 2. If the starting lesson is `m0.1-setup-python`, go straight into setup (see "Getting the
    user set up with module 0.1" below) — no calibration question, no other questions.
+   Likewise, if it's `m1.9-practice`, skip the calibration question and go straight into it
+   as a lab-style walkthrough (see Instructor notes: m1.9-practice) — there's no lesson
+   content or quiz to teach around it.
 
 3. Otherwise, before reading lesson content, ask the one-time calibration question below.
 
@@ -185,6 +188,10 @@ Each reference file is a single `.md` file containing up to three tabbed panels 
 When reading a lesson file, scan for these panels and teach them in order:
 lesson content → lab (if present) → quiz (if present).
 
+**Exception: `m1.9-practice`** doesn't follow this panel structure at all — the whole file is a
+standalone capstone practice exercise (homework), not a lesson with a lab/quiz inside it. See
+Instructor notes for how to handle it.
+
 ## Instructor notes
 
 - **m0.1** - Do not ask the student any questions during this module. This module is purely meant for setup and not conceptual understanding.
@@ -205,6 +212,28 @@ First ask if the user is curious about learning about open-source models, and if
 - **m1.6** - For the lab, if you mention the LangSmith trace, print out the url itself, so the user can copy/paste it. 
 
 - **m1.7** - For the lab, when you mention the LangSmith traces for Thread A and Thread B, print out the urls themselves, so the user can copy/paste them.
+
+- **m1.9-practice** - This isn't a taught lesson with a lab/quiz inside it — the entire file
+  *is* a capstone practice exercise (homework) tying together TODOs from across m1.3-m1.8.
+  Treat it entirely like a lab (see "Lab (if present)"), never like a taught lesson: no
+  calibration question, no anchors/Recap, no teach-back, and no quiz/MCQs — there isn't one.
+  - Explain the goal in your own words: the student builds a "judge persona" that scores a
+    personality quiz and matches the result to a real LangChain product, using a system
+    prompt, a custom tool, and HITL approval before "posting" the result — a mock, nothing
+    ever leaves their terminal.
+  - Walk through what's provided (`judge_card_helpers.py` — the quiz runner, product lookup,
+    card renderer, mock-post tool, and the invoke/interrupt-resume loop) versus what they fill
+    in: six TODOs, each tied to a specific Module 1 lesson — persona system prompt (1.4),
+    `score_and_match()` custom tool (1.5), grounding the verdict in an MCP fact (1.6, **stretch
+    goal**), a second persona in its own thread (1.7), requiring approval before posting (1.8),
+    and swapping in `strong_model` (1.3, **optional**). Call out the two stretch/optional TODOs
+    as such — don't imply they're required.
+  - Give the run command (`cd python && uv run python m1/Practice/judge_card_practice.py`) and
+    don't do the TODOs for them, same as any other lab. `judge_card_practice_filled.py` exists
+    as a finished reference if they get stuck, but encourage trying first.
+  - Once it's done or skipped, that's the end of Module 1 — advance straight to
+    `m2.1-the-deep-agent-environment` per "Advancing through the curriculum," same as finishing
+    any other lesson's quiz.
 
 - **m2.2** - When you teach, you can keep single and composite backend together in the same turn, but talk about permissions in the following turn. Explaining single backend, composite backend, and permissions all in one turn is a bit too much at once.
 
@@ -452,6 +481,7 @@ m1.5-tools
 m1.6-mcp
 m1.7-messages-threads-checkpointers
 m1.8-hitl
+m1.9-practice
 m2.1-the-deep-agent-environment
 m2.2-filesystem-backends
 m2.3-sandboxes-and-localshell
@@ -481,6 +511,7 @@ Use these human-readable titles when addressing the student:
 | m1.6-mcp | MCP |
 | m1.7-messages-threads-checkpointers | Messages, Threads, and Checkpointers |
 | m1.8-hitl | Human-in-the-Loop |
+| m1.9-practice | Test Your Skills: Build a Judge Persona |
 | m2.1-the-deep-agent-environment | The Deep Agent Environment |
 | m2.2-filesystem-backends | Filesystem Backends |
 | m2.3-sandboxes-and-localshell | Sandboxes and LocalShell |
