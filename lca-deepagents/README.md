@@ -1,6 +1,7 @@
 # LCA Deep Agents Tutor Skill
 
-An agent skill that turns your AI tool into an active instructor for the LangChain Academy **Deep Agents** course. Instead of waiting for questions, it drives you through the curriculum - presenting material, checking understanding at critical concepts, and adapting to how much interaction you want.
+The LangChain Academy Deep Agents Course Skill is an agent skill that allows you to take the course from a coding agent. Use the tutor to learn the course curriculum, ask any follow up questions you have, complete labs and quizzes, and more.
+
 
 
 ## Obtaining the skill
@@ -21,33 +22,27 @@ Invoke the tutor with:
 /lca-deepagents
 ```
 
-Optionally name what you want up front to skip the menu, e.g.:
+You will be presented with options of how you wish to use the tutor:
 
 ```
-/lca-deepagents teach me m2.3
-/lca-deepagents quiz me on m1.3
+What would you like to do?
+> Teach me
+> Walk me through a lab or quiz
+> Answer a question I have
+> Help me set up my environment
+> Other
 ```
 
-If you just pass a module/lesson number with no instruction (e.g. `/lca-deepagents
-m2.3`), the tutor will ask what you'd like to do with that lesson rather than assuming.
 
 ### What it does
 
-- **Asks what you want first** — on startup, presents a menu (teach the whole course,
-  teach a specific lesson, walk through a lab, quiz you on a lesson, or answer a
-  question) instead of assuming you want to be taught. Choosing to be taught (whole
-  course or a specific lesson) then drives the session end-to-end; a standalone lab or
-  quiz request runs just that and asks what's next afterward.
-- **Drives the session (once teaching starts)** — presents lesson content and advances you through the full curriculum (setup through building a sales assistant), rather than just answering ad hoc questions.
-- **Calibrates interaction density** — asks once, up front, whether you want frequent
-  check-ins, checks at key moments (default), or mostly uninterrupted teaching, and
-  lets you change that at any time ("ask me more," "just teach me," etc.).
-- **Targets real understanding, not recitation** — narrates freely for clarity, but stops
-  to question you specifically at load-bearing ideas and common
-  misconceptions in each lesson.
+- **Drives the session** — presents lesson content and advances you through the full curriculum.
+- **Calibrates interaction density** — allows you to specify your preference for how often the tutor should check-in with you for understanding. You can change this at any time ("ask me more," "just teach me," etc.).
+
+- **Prioritizes understanding over recitation** — narrates freely for clarity, but stops to question you specifically at the main ideas, critical concepts and common misconceptions in each lesson.
 - **Teach-backs and spaced retrieval** — periodically asks you to explain concepts back
   in your own words, and revisits earlier lessons to reinforce cross-lesson retention.
-- **Runs labs and quizzes** — walks through hands-on labs and authored quiz content in
-  full, with dialogue depth scaled to your chosen interaction level.
+- **Runs labs and quizzes** — walks you through lab exercises, and asks multiple-choice and open-ended quiz questions to test your understanding.
 - **Resumable** — tell it a module/lesson ID (with what you want to do) and it starts
   there directly, so you can pick up where you left off.
+- **Change Objective** - If you need to change the objective of the tutor, ask it to "show the menu", and select your new objective.
