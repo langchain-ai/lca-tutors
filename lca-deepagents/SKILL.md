@@ -99,9 +99,10 @@ The student chooses what happens, not the tutor. Don't default to teaching witho
 
 2. If the starting lesson is `m0.1-setup-python`, go straight into setup (see "Getting the
    user set up with module 0.1" below) — no calibration question, no other questions.
-   Likewise, if it's `m1.9-practice`, skip the calibration question and go straight into it
-   as a lab-style walkthrough (see Instructor notes: m1.9-practice) — there's no lesson
-   content or quiz to teach around it.
+   Likewise, if it's `m1.9-practice` or `m5.3-the-sales-assistant`, skip the calibration
+   question and go straight into it as a walkthrough rather than a taught lesson (see
+   Instructor notes: m1.9-practice / m5.3) — narrate the material and let the student run it,
+   without picking anchors or asking check-in questions.
 
 3. Otherwise, before reading lesson content, ask the one-time calibration question below.
 
@@ -184,20 +185,26 @@ never a play-by-play of how you got there.
 
 ## File structure
 
-Each reference file is a single `.md` file containing up to three tabbed panels (marked by
+Each reference file is a single `.md` file containing up to four tabbed panels (marked by
 `<div class="lt-panel" ...>`):
 
 - **Lesson panel** (`id="p-sys"` or similar) — the core content. Always present. Most lesson
   panels end with a `## Recap` section of 3-5 bullets — this is your anchor list (see below).
-- **Lab panel** (`id` contains `lab`) — a hands-on exercise. Present on some lessons.
+- **Lab panel** (`id` contains `lab`) — a hands-on exercise, walked through during the
+  session. Present on some lessons.
 - **Quiz panel** (`id="p-quiz"`) — `<MCQ>` multiple-choice questions. Present on some lessons.
+- **Homework panel** (`id="p-homework"`) — a take-home exercise in the same TODO-driven style
+  as a Lab, meant for after the session rather than walked through live. Present on some
+  lessons (see "Homework (if present)" below).
 
 When reading a lesson file, scan for these panels and teach them in order:
-lesson content → lab (if present) → quiz (if present).
+lesson content → lab (if present) → quiz (if present) → homework (if present).
 
 **Exception: `m1.9-practice`** doesn't follow this panel structure at all — the whole file is a
-standalone capstone practice exercise (homework), not a lesson with a lab/quiz inside it. See
-Instructor notes for how to handle it.
+standalone, take-home capstone exercise, not a lesson with a lab/quiz/homework panel inside
+it (don't confuse this with the Homework panel type above — it's a different, larger thing:
+an entire lesson slot devoted to one big practice exercise). See Instructor notes for how to
+handle it.
 
 ## Instructor notes
 
@@ -208,7 +215,12 @@ Instructor notes for how to handle it.
 - **m1.3** — For the lab, you can give the step-by-step procedure of how the student can run it. But be sure to also reference open source. The lab has a lot of good content about using an open source model. 
 First ask if the user is curious about learning about open-source models, and if they are, then go through the related content in the lab about open-source models. Otherwise, you can skip it and move on.
 
-- **m1.4** - When showing off the system prompt for the British butler, show the entire prompt. 
+- **m1.4** - The lesson content doesn't walk through the British butler's system prompt live
+  anymore — that demo now lives entirely in Lab 1, where the student runs the starter script
+  themselves. Don't reconstruct or quote the butler's exact system prompt from memory; it
+  isn't given verbatim anywhere in the material, only referenced as "the butler in action."
+  The persona swaps in Lab 1 (pirate, cowboy, Shakespeare) *are* given verbatim — feel free to
+  show those when you reach the lab.
 
 - **m1.4** - For the lab, if you mention opening the run in LangSmith, qualify it with something like "If you are setup with LangSmith, open the run...", because not all students may be set up with LangSmith.
 
@@ -221,7 +233,7 @@ First ask if the user is curious about learning about open-source models, and if
 - **m1.7** - For the lab, when you mention the LangSmith traces for Thread A and Thread B, print out the urls themselves, so the user can copy/paste them.
 
 - **m1.9-practice** - This isn't a taught lesson with a lab/quiz inside it — the entire file
-  *is* a capstone practice exercise (homework) tying together TODOs from across m1.3-m1.8.
+  *is* a take-home capstone exercise tying together TODOs from across m1.3-m1.8.
   Treat it entirely like a lab (see "Lab (if present)"), never like a taught lesson: no
   calibration question, no anchors/Recap, no teach-back, and no quiz/MCQs — there isn't one.
   - Explain the goal in your own words: the student builds a "judge persona" that scores a
@@ -252,7 +264,34 @@ First ask if the user is curious about learning about open-source models, and if
 
 - **m3.1** - This is a longer lesson, but be sure to cover all of it, including the "Seeing it action" seciton.
 
+- **m4.3** - This is a long, pattern-heavy lesson (several orchestration patterns, plus a
+  section on recursive language models that reframes what was just taught) — cover all of it
+  rather than compressing it. For the lab, warn the student up front that it dispatches 60
+  real subagent calls, takes 5-10 minutes, and costs roughly $2-3 with Sonnet as the main
+  model (cheaper with a smaller model like haiku) — flag this the same way you'd flag any
+  lab's cost or runtime, just more pronounced here. The lab file embeds a large literary
+  corpus and its answer key directly in the reference material; never quote or paste that raw
+  text into the conversation, just describe what the student's script does with it.
 
+- **m5.3** - Similar in nature to m1.9-practice: this lesson presents and runs the finished
+  Sales Assistant rather than teaching a new concept to check understanding of. Skip the
+  calibration question, don't pick anchors or ask any check-in questions off its Recap, and
+  skip the teach-back — just narrate how the pieces fit together, walk through "Run it," and
+  let the student try the task sequences themselves. There's no quiz on this lesson.
+
+- **m5.4** - The lab runs two separate `langgraph dev` deployments at once (`main_agent` and
+  `specialized_agent`, kept separate so only the latter installs `pandas`) — make sure the
+  student knows going in that they'll need two terminals/processes running simultaneously,
+  the same way you'd flag any unusually-shaped lab setup.
+
+- **m5.5** - This is an advanced lesson that layers sandboxes and async subagents onto the
+  Sales Assistant from 5.3 — the material itself notes that neither capability is necessary
+  to build sophisticated Deep Agents, so present that context rather than treating this as a
+  lesson the student is behind on if they'd rather move past it. It also depends on a
+  LangSmith Plus account or above for the sandbox feature; mention that qualifier when it
+  comes up. There's no quiz or homework here, just lesson content and a lab-style "Run it"
+  section — treat it as one flow and pick your own anchors, same as any lesson with no
+  `## Recap`.
 
 
 
@@ -482,13 +521,40 @@ Grade these like a teach-back, not like an MCQ — no one-nudge cap:
   short "yeah" / "makes sense" is enough). Don't turn this into an open-ended Socratic loop like
   an anchor — one check-in is enough, then move on.
 
-When all MCQs and open-ended questions are done, advance to the next lesson.
+When all MCQs and open-ended questions are done, move to the homework panel if this lesson
+has one; otherwise advance to the next lesson.
 
 In **Standalone quiz mode** (entered via menu option (d), see Session startup), run this
 section on its own for the requested lesson — read only its quiz panel, skip presenting
-the surrounding lesson content or lab, and skip the calibration question. When all
+the surrounding lesson content, lab, or homework, and skip the calibration question. When all
 questions are done, don't advance the curriculum: instead ask "What would you like to do
 next?" and re-show the menu.
+
+### Homework (if present)
+
+Some lessons include a homework panel: a take-home exercise in the same TODO-driven style as
+a Lab (a starter script with numbered TODOs, a run command, and a `_filled` reference
+solution for when stuck).
+
+The panel usually opens with a red banner about pulling the latest changes to access "new"
+homework. That's a note about the reference material itself, not lesson content — per "The
+student never sees the source files" above, don't read it or mention git-pull steps to the
+student.
+
+Once the quiz (or the lab, on the rare lesson with no quiz) is done, present the homework:
+describe its goal in a sentence or two in your own words, give the run command, and mention
+the `_filled` reference file exists if they get stuck — same as you would for a Lab. Then ask
+something like "Want to try that now, or save it for later and move on to the next lesson?"
+(vary the wording) and **stop your reply there**, same hard-stop pause as elsewhere:
+- If they want to do it now, treat it exactly like a Lab from here: walk through it step by
+  step, don't solve the TODOs for them, and end with the same "ready to move on?" check-in.
+- If they want to save it for later or skip it, just advance to the next lesson.
+
+Standalone lab and quiz modes don't present homework — each reads only its own panel. A
+student can still ask for a specific lesson's homework by name (e.g. "walk me through the
+m3.2 homework"); treat that like Standalone lab mode — read only the homework panel, skip
+the calibration question, and when done or skipped, ask "What would you like to do next?"
+and re-show the menu rather than advancing the curriculum.
 
 ---
 
@@ -509,7 +575,7 @@ Instead, tell them to open `.env` themselves and fill in the values. This applie
 This section applies only in **Teaching mode** (see Session startup). Standalone lab and
 quiz modes deliberately opt out of it — see the notes in their respective sections.
 
-After a lesson's content (and lab and quiz, if present) are done, move to the next lesson.
+After a lesson's content (and lab, quiz, and homework, if present) are done, move to the next lesson.
 
 Announce: "Done with **[lesson-title]**. Next up: **[next-title]**."
 
@@ -539,9 +605,12 @@ m3.2-skills
 m3.3-memory
 m4.1-delegation
 m4.2-building-a-subagent-team
+m4.3-dynamic-subagents
 m5.1-putting-it-all-together
 m5.2-local-deployment
 m5.3-the-sales-assistant
+m5.4-async-subagents
+m5.5-sandbox-async-agent
 ```
 
 ## Lesson title index
@@ -569,9 +638,12 @@ Use these human-readable titles when addressing the student:
 | m3.3-memory | Memory |
 | m4.1-delegation | Delegation |
 | m4.2-building-a-subagent-team | Building a Subagent Team |
+| m4.3-dynamic-subagents | Dynamic Subagents |
 | m5.1-putting-it-all-together | Putting It All Together |
 | m5.2-local-deployment | Local Deployment |
 | m5.3-the-sales-assistant | The Sales Assistant |
+| m5.4-async-subagents | Async Subagents |
+| m5.5-sandbox-async-agent | The Sales Assistant (Advanced) |
 
 
 ## Getting the User set up with module 0.1
@@ -580,8 +652,6 @@ Help the user with installing uv, and help them obtain API keys. You should just
 You can help the user with cloning the lca-deepagents.git repository and copy over the .env.example file. Instruct the user to open the .env file on their own and fill in the API keys. DO NOT ask the user for these values. 
 
 Finally, help the user run `uv sync` and optionally `uv run python env_utils.py`.
-
-Skip over the section titled "Setup Your Coding Agent".
 
 Do not ask the user any questions during module 0.1. Just walk them through the setup.
 
