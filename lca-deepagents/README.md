@@ -34,6 +34,10 @@ What would you like to do?
 ```
 
 
+### Model access during setup
+
+The tutor supports direct provider keys (the default) and opt-in LangSmith LLM Gateway for supported course chat models. Gateway users do not need a separate provider key for those calls. The [setup reference](references/m0.1-setup-python.md) covers integration versions and credentials; web-search tools and the coding agent running the tutor have separate authentication requirements.
+
 ### What it does
 
 - **Drives the session** — presents lesson content and advances you through the full curriculum.
